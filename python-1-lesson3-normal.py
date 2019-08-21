@@ -13,15 +13,15 @@
 
 Name = ['Иван', 'Петр', 'Андрей', 'Степан', 'Кирилл']
 Salary = [500001, 45000, 47500, 51300, 49900]
-Data = dict(zip(Name, Salary)) # получаем словарь
-f = open('salary.txt', 'w')
+Data = dict(zip(Name, Salary))  # получаем словарь
+f = open('salary.txt', 'w', encoding='utf-8')
 for i in Data:
-    new_str = i + ' - ' + str(Data[i]) + '\n' # строка состоит из ключа, "пробела-тире-пробела" и значения
+    new_str = i + ' - ' + str(Data[i]) + '\n'  # строка состоит из ключа, "пробела-тире-пробела" и значения
     f.write(new_str)
 f.close()
-f = open('Salary.txt')
+f = open('Salary.txt', encoding='utf-8')
 for line in f:
-    new_list = line.replace('\n', '').split(' - ') # из строки создаём кортеж
+    new_list = line.replace('\n', '').split(' - ')  # из строки создаём кортеж
     # выводим в верхнем регистре имя и зарплату после вычета налога, если зарплата до 500000
     if int(new_list[1]) <= 500000:
         print(new_list[0].upper(), ' - ', '{:.2f}'.format(float(new_list[1]) * 0.87))
